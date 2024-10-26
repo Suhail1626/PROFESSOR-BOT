@@ -8,8 +8,8 @@ bs4==0.0.1
 
 #---database---#
 pymongo
-dnspython==2.3.0
-marshmallow==3.20.1
+dnspython
+marshmallow
 umongo
 motor
 
@@ -34,7 +34,6 @@ wheel
 ujson
 wget
 pytz
-
 
 
 
