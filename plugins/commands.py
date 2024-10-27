@@ -242,14 +242,16 @@ async def delete(bot, message):
         result = await Media.collection.delete_many({
             'file_name': file_name,
             'file_size': media.file_size,
-            'mime_type': media.mime_type
+            'mime_type': media.mime_type,
+            'caption': media.caption.html if media.caption else None
             })
         if result.deleted_count: await msg.edit('File Is Successfully Deleted From Database')
         else:
             result = await Media.collection.delete_many({
                 'file_name': media.file_name,
                 'file_size': media.file_size,
-                'mime_type': media.mime_type
+                'mime_type': media.mime_type,
+                'caption': media.caption.html if media.caption else None
             })
             if result.deleted_count: await msg.edit('File Is Successfully Deleted From Database')
             else: await msg.edit('File Not Found In Database')
